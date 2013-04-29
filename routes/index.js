@@ -8,44 +8,41 @@ exports.index = function(req, res){
   res.render('index', { title: 'Express' });
 };
 
-exports.sailors_list = function (req, res) {
-  sailors.getSailors(function (err, ss) {
-    if (err) {
-      res.send('problem access data layer!');
-    }
-    else {
-      res.render('sailors_list', { title : 'Sailors List',
-                                   sailors : ss });
-    }
-  });
+exports.contribute = function (req, res) {
+  res.render('insert_sailor', { title : 'Contribute'});
 };
 
-exports.sailors_add = function (req, res) {
-  res.render('insert_sailor', { title : 'Insert Sailor'});
-};
-
-exports.insert_sailor = function (req, res) {
+exports.add_contribution = function (req, res) {
+  console.log('add_contribution');
   var name = req.query.name;
-  var rating = req.query.rating;
-  var age = req.query.age;
-  if (name && rating && age) {
-    sailors.addSailor(name, rating, age, function (err) {
+  var zip = req.query.zip;
+  var story = req.query.story;
+  if (name && zip && story) {
+    sailors.addContribution(name, zip, story, function (err) {
       if (err) {
+        console.log('err');
         res.send('bad sailor insert');
       }
       else {
-        res.redirect('/sailors/list');
+        console.log('redirect to /contributions');
+        res.redirect('/contributions');
       }
     });
   }
   else {
-    res.send('missing sailor info');
+    console.log('missing info');
+    res.send('missing info');
   }
 };
 
-exports.get_sailor = function (req, res) {
-  var name = req.params.name;
-  sailors.getSailor(name, function (err, data) {
-    res.send(data.sname + " " + data.rating + " " + data.age);
+exports.list_contributions = function (req, res) {
+  sailors.getContributions(function (err, c) {
+    if (err) {
+      res.send('problem access data layer!');
+    }
+    else {
+      res.render('contributions', { title : 'Brightened Days',
+                                   contributions : c });
+    }
   });
 };
