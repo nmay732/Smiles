@@ -1,4 +1,4 @@
-var sailors = require('../lib/sailors.js');
+var smiles = require('../lib/smiles.js');
 
 /*
  * GET home page.
@@ -9,7 +9,7 @@ exports.index = function(req, res){
 };
 
 exports.contribute = function (req, res) {
-  res.render('insert_sailor', { title : 'Contribute'});
+  res.render('contribute', { title : 'Contribute'});
 };
 
 exports.add_contribution = function (req, res) {
@@ -18,10 +18,10 @@ exports.add_contribution = function (req, res) {
   var zip = req.query.zip;
   var story = req.query.story;
   if (name && zip && story) {
-    sailors.addContribution(name, zip, story, function (err) {
+    smiles.addContribution(name, zip, story, function (err) {
       if (err) {
         console.log('err');
-        res.send('bad sailor insert');
+        res.send('bad insert');
       }
       else {
         console.log('redirect to /contributions');
@@ -36,7 +36,7 @@ exports.add_contribution = function (req, res) {
 };
 
 exports.list_contributions = function (req, res) {
-  sailors.getContributions(function (err, c) {
+  smiles.getContributions(function (err, c) {
     if (err) {
       res.send('problem access data layer!');
     }
