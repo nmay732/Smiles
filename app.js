@@ -1,6 +1,5 @@
 var express = require('express')
   , routes = require('./routes/')
-  , user = require('./routes/user')
   , http = require('http')
   , path = require('path');
 
@@ -25,10 +24,9 @@ app.configure('development', function(){
 });
 
 app.get('/', routes.index);
-app.get('/users', user.list);
 
 app.get('/contributions' , routes.list_contributions);
-app.get('/sailors/add' , routes.contribute);
+app.get('/contribute' , routes.contribute);
 app.get('/add-contribution', routes.add_contribution);
 // app.get('/sailors/:name/:format', routes.get_sailor);
 // app.put('/sailors/:name/:prop/:value');
