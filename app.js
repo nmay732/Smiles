@@ -1,5 +1,6 @@
 var express = require('express')
   , routes = require('./routes/')
+  , ajax = require('./lib/ajax')
   , http = require('http')
   , path = require('path');
 
@@ -29,8 +30,7 @@ app.get('/', function(req, res){
 app.get('/contributions' , routes.list_contributions);
 app.get('/contribute' , routes.contribute);
 app.get('/add-contribution', routes.add_contribution);
-// app.get('/sailors/:name/:format', routes.get_sailor);
-// app.put('/sailors/:name/:prop/:value');
+app.post('/check', ajax.check);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));

@@ -3,6 +3,10 @@
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script type="text/javascript"
+    		src="/javascripts/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript"
+    		src="/javascripts/post-check.js"></script>
   </head>
   <body>
     <div class="top">
@@ -13,12 +17,14 @@
       </form>
     </div>
     <div class="post_container">
-    <% for (var i = 0; i < contributions.length; i++) { %>
+    <!--  #Looping through an object WITHOUT AJAX:
+      <% for (var i = 0; i < contributions.length; i++) { %>
       <div class="post">
         <p class="name"><%= contributions[i].name %><br></p>
         <p class="story"><%= contributions[i].story %></p>
       </div>
     <% } %>
+    -->
     <div>
   </body>
 </html>
