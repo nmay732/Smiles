@@ -1,0 +1,76 @@
+body {
+  padding:20px;
+  font:14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: white;
+}
+
+.form_container{
+  background:#f1f1f1;
+  width:470px;
+  margin:0 auto;  
+  padding-left:50px; 
+  padding-top:20px;
+  border:1px solid gray;
+  border-radius: 3px;
+}
+.form_container fieldset{
+  border:0px; 
+  padding:0px; 
+  margin:0px;}
+
+.form_container p.label_text { 
+  font-size: 12px; 
+  margin:0px 0px 10px 0;
+  line-height: 14px; 
+  font-family:Arial, Helvetica;
+}
+
+.form_container .field {
+  width: 400px;
+  border:1px solid lightgray;
+}
+
+.form_container label { 
+  color: #000; 
+  font-weight:bold;
+  font-size: 12px;
+  font-family:Arial, Helvetica; 
+}
+
+.form_container input, textarea { 
+  background-color: rgba(255, 255, 255, 0.4); 
+  border: 1px solid rgba(122, 192, 0, 0.15); 
+  padding: 7px; font-family: Keffeesatz, Arial; 
+  color: #4b4b4b; font-size: 14px; -webkit-border-radius: 5px; 
+  margin-bottom: 15px; margin-top: -10px; 
+}
+
+.form_container input:focus, textarea:focus { 
+  background-color: rgba(255, 255, 255, 1); 
+}
+
+.form_container input.button{ 
+  background: #BAD5FF;  
+  padding: 5px 10px 6px; 
+  color: #fbf7f7; 
+  text-decoration: none; 
+  font-weight: bold; line-height: 1; 
+  border-radius: 5px; 
+  box-shadow: 0 1px 3px #999; 
+  text-shadow: 0 0px 1px #222; 
+  border: none; 
+  position: relative; 
+  cursor: pointer; 
+  font-size: 14px; 
+  font-family:Verdana, Geneva, sans-serif;
+}
+
+.form_container input.button:hover{background-color: #AAC9FA;}
+
+textarea{
+  resize: vertical;
+}
+
+.form_container form{
+  display: inline-block;
+}

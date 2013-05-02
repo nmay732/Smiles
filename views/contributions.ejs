@@ -5,12 +5,20 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Contributions</p>
-    <ul>
-      <% for (var i = 0; i < contributions.length; i++) { %>
-        <li><%= contributions[i].name %> : <%= contributions[i].story %></li>
-      <% } %>
-    </ul>
+    <div class="top">
+      <h1><%= title %></h1>
+      <p>Contributions</p>
+      <form action="/contribute">
+        <input type="submit" value="Tell your story">
+      </form>
+    </div>
+    <div class="post_container">
+    <% for (var i = 0; i < contributions.length; i++) { %>
+      <div class="post">
+        <p class="name"><%= contributions[i].name %><br></p>
+        <p class="story"><%= contributions[i].story %></p>
+      </div>
+    <% } %>
+    <div>
   </body>
 </html>

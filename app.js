@@ -23,8 +23,9 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
-app.get('/', routes.index);
-
+app.get('/', function(req, res){
+    res.redirect('/contributions');
+});
 app.get('/contributions' , routes.list_contributions);
 app.get('/contribute' , routes.contribute);
 app.get('/add-contribution', routes.add_contribution);
