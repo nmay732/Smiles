@@ -7,7 +7,7 @@ function Checker(config) {
 
 Checker.prototype = {
 	// An cache of posts received from server.
-	posts : [],
+	posts : [], //TODO: limit number of posts to load on client?
 
 	// Start polling the server.
 	poll : function () {
@@ -28,10 +28,15 @@ Checker.prototype = {
 	// current posts.
 	check : function () {
 		var that = this;
+        var id;
+        if(that.posts.length <= 0)
+          id = -1; //flag server that this is the first poll
+        else
+          id = that.posts[that.posts.length-1].cid;
 		$.ajax({
 			type : 'POST',
 			url  : '/check',
-			data : { last : that.posts.length }, //TODO: don't judge by just the length
+			data : { last_id : id },
 			dataType : 'json'
 		}).done(function (data) {
 			console.log('Check rcvd: ' + JSON.stringify(data));
@@ -43,7 +48,7 @@ Checker.prototype = {
             //TODO: only add new posts not EVERYTHING.
 			that.container.empty();
 			for (var i = 0; i < that.posts.length; i++) {
-				var post = $('<div>').attr({'class': 'post'});
+				var post = $('<div>').attr({'class': 'post'}).attr({id: that.posts[i].id});
                 var pname = '<p class="name">' + that.posts[i].name + '<br>';
                 var pstory = '<p class="story">' + that.posts[i].story;
                 post.html(pname + pstory);
