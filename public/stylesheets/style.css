@@ -16,29 +16,39 @@ a {
 
 .post_container{
   padding:15px;
-  max-width:800px;
+  max-width:370px;
   margin: 0 auto;
   text-align: center;
 }
 
 .post{
-  text-align: left;
+  -webkit-transition: transform .2s ease-in-out;
+  text-align:left;
   line-height:150%;
-  display: inline-block;
-  width:280px;
+  width:350px;
   padding-top:0px;
   padding-left:10px;
   padding-right:10px;
   border:1px solid gray;
-  margin:10px;
+  margin:10px auto;
   background-color: ghostwhite;
   border-radius:3px;
   box-shadow: 1px 1px 2px #888888;
 }
 
-.name{font-weight: bold}
+.name{
+  font-weight: bold; 
+  display:inline-block;
+}
+.time{
+  color:lightgray; 
+  display:inline-block;
+  margin-left: 6px;
+}
 .story{}
+
 
 .post:hover{
   box-shadow: 2px 2px 4px #888888;
+  -webkit-transform: translate3d(0px, 10px, 0px);
 }

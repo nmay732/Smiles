@@ -55,9 +55,9 @@ body {
   color: #fbf7f7; 
   text-decoration: none; 
   font-weight: bold; line-height: 1; 
-  border-radius: 5px; 
+  border-radius: 3px; 
   box-shadow: 0 1px 3px #999; 
-  text-shadow: 0 0px 1px #222; 
+  text-shadow: 0 0px 1px #555; 
   border: none; 
   position: relative; 
   cursor: pointer; 

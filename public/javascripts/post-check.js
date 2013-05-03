@@ -49,10 +49,12 @@ Checker.prototype = {
 			that.container.empty();
 			for (var i = 0; i < that.posts.length; i++) {
 				var post = $('<div>').attr({'class': 'post'}).attr({id: that.posts[i].id});
-                var pname = '<p class="name">' + that.posts[i].name + '<br>';
-                var pstory = '<p class="story">' + that.posts[i].story;
-                post.html(pname + pstory);
-				that.container.append(post);
+                var pname = '<p class="name">' + that.posts[i].name + '</p>';
+                var time = '<p class="time">' + that.posts[i].time + '</p>';
+                var pstory = '<p class="story">' + that.posts[i].story + '</p>';
+                var br = '<br>';
+                post.html(pname + time + br + pstory);
+				that.container.prepend(post);
 			}
 		});
 	}	
