@@ -50,7 +50,8 @@ Checker.prototype = {
 			for (var i = 0; i < that.posts.length; i++) {
 				var post = $('<div>').attr({'class': 'post'}).attr({id: that.posts[i].id});
                 var pname = '<p class="name">' + that.posts[i].name + '</p>';
-                var time = '<p class="time">' + that.posts[i].time + '</p>';
+                var time_stamp = relativeDate(that.posts[i].time);
+                var time = '<p class="time">' + time_stamp + '</p>';
                 var pstory = '<p class="story">' + that.posts[i].story + '</p>';
                 var br = '<br>';
                 post.html(pname + time + br + pstory);
