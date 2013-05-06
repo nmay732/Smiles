@@ -1,7 +1,7 @@
 body {
-  padding:20px;
-  font:14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin: 0px 0px 0px 0px;
   background-color: white;
+  font:14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
@@ -10,8 +10,12 @@ a {
 }
 
 .top{
+  padding: 10px;
   text-align: center;
-  margin: 0 auto;
+  margin: 0px auto;
+  height:268px;
+  width:100%;
+  background: #CCFEFD  url('../images/sunflower-header.jpg') no-repeat top left;
 }
 
 .post_container{
@@ -22,7 +26,6 @@ a {
 }
 
 .post{
-  -webkit-transition: transform .2s ease-in-out;
   text-align:left;
   line-height:150%;
   width:350px;
@@ -50,5 +53,4 @@ a {
 
 .post:hover{
   box-shadow: 2px 2px 4px #888888;
-  -webkit-transform: translate3d(0px, 10px, 0px);
 }
