@@ -16,6 +16,7 @@ Checker.prototype = {
 			that.check();
 		},
 		3000);
+        that.check(); //check immediately on call
 	},
 
 	// Stop polling this server.
