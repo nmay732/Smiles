@@ -32,8 +32,8 @@ Checker.prototype = {
         var id;
         if(that.posts.length <= 0)
           id = -1; //flag server that this is the first poll
-        else
-          id = that.posts[that.posts.length-1].cid;
+        else{
+          id = that.posts[0].cid;}//most recent post id
 		$.ajax({
 			type : 'POST',
 			url  : '/check',
@@ -42,14 +42,16 @@ Checker.prototype = {
 		}).done(function (data) {
 			console.log('Check rcvd: ' + JSON.stringify(data));
 
+            //remove the number of posts recieved from the oldest posts
+            that.posts.splice(that.posts.length-1-data.length, data.length);
 			// Append the posts to the current posts:
 			that.posts = that.posts.concat(data);
 
 			// Rewrite to the container:
             //TODO: only add new posts not EVERYTHING.
 			that.container.empty();
-			for (var i = 0; i < that.posts.length; i++) {
-				var post = $('<div>').attr({'class': 'post'}).attr({id: that.posts[i].id});
+			for (var i = that.posts.length-1; i >= 0; i--) {
+				var post = $('<div>').attr({'class': 'post'}).attr({id: that.posts[i].cid});
                 var pname = '<p class="name">' + that.posts[i].name + '</p>';
                 var time_stamp = relativeDate(that.posts[i].time);
                 var time = '<p class="time">' + time_stamp + '</p>';
